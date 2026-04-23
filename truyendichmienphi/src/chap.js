@@ -14,7 +14,6 @@ function execute(url) {
 
   const response = fetch(url);
 
-  console.log(token);
   if (!response.ok) {
     return Response.error("Failed to fetch chapter content");
   }
