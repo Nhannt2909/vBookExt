@@ -8,7 +8,7 @@
       "name": "Test TruyenDichMienPhi",
       "author": "nhannt2909",
       "path": "https://raw.githubusercontent.com/Nhannt2909/vbext/refs/heads/main/truyendichmienphi/plugin.zip",
-      "version": 1,
+      "version": 2,
       "source": "https://truyendichmienphi.com/truyen",
       "icon": "https://raw.githubusercontent.com/Darkrai9x/vbook-extensions/master/bachngocsach/icon.png",
       "description": "Đọc truyện trên trang bachngocsach.cc/reader",
