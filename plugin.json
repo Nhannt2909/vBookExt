@@ -25,6 +25,17 @@
       "description": "Đọc truyện trên trang khotruyenchu.space",
       "type": "novel",
       "locale": "vi_VN"
+    },
+    {
+      "name": "Truyện plus",
+      "author": "nhannt2909",
+      "path": "https://raw.githubusercontent.com/Nhannt2909/vbext/refs/heads/main/truyenplus/plugin.zip",
+      "version": 1,
+      "source": "https://truyenplus.vn/",
+      "icon": "https://raw.githubusercontent.com/Nhannt2909/vbext/refs/heads/main/truyenplus/icon.png",
+      "description": "Đọc truyện trên trang khotruyenchu.space",
+      "type": "novel",
+      "locale": "vi_VN"
     }
   ]
 }
