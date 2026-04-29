@@ -54,11 +54,9 @@ function execute(url) {
 
             let html = contentEl.html();
             return Response.success(cleanContent(html));
-        } else {
-            return Response.error("Không tìm thấy div truyện. Tiêu đề trang: " + doc.select("title").text());
         }
     }
-    return Response.error("Lỗi HTTP: " + response.status);
+    return null;
 }
 
 function cleanContent(html) {
