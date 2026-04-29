@@ -14,11 +14,12 @@
       "description": "Đọc truyện trên trang bachngocsach.cc/reader",
       "type": "novel",
       "locale": "vi_VN"
-    },{
+    },
+    {
       "name": "Kho truyện chữ",
       "author": "nhannt2909",
       "path": "https://raw.githubusercontent.com/Nhannt2909/vbext/refs/heads/main/khotruyenchu/plugin.zip",
-      "version": 1,
+      "version": 2,
       "source": "https://khotruyenchu.space/",
       "icon": "https://raw.githubusercontent.com/Darkrai9x/vbook-extensions/master/bachngocsach/icon.png",
       "description": "Đọc truyện trên trang bachngocsach.cc/reader",

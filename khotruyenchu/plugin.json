@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Kho Truyện Chữ",
     "author": "nhannt2909",
-    "version": 1,
+    "version": 2,
     "source": "https://khotruyenchu.space/",
     "regexp": "khotruyenchu\\.(sbs|click|online)/truyen/.*",
     "description": "Đọc truyện trên khotruyenchu.online",
