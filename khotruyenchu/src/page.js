@@ -13,10 +13,11 @@ function execute(url) {
         let pagination = doc.select("a.page-numbers");
         if (pagination.size() > 0) {
             let lastPage = 1;
-            pagination.forEach(function(el) {
+            for (let i = 0; i < pagination.size(); i++) {
+                let el = pagination.get(i);
                 let p = parseInt(el.text());
-                if (p > lastPage) lastPage = p;
-            });
+                if (!isNaN(p) && p > lastPage) lastPage = p;
+            }
             
             let baseUrl = url;
             if (baseUrl.endsWith('/')) baseUrl = baseUrl.slice(0, -1);

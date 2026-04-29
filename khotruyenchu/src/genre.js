@@ -9,16 +9,19 @@ function execute() {
     if (response.ok) {
         let doc = response.html();
         let genres = [];
-        doc.select("a[href*='/the-loai/']").forEach(function(el) {
+        let genreElements = doc.select("a[href*='/the-loai/']");
+        for (let i = 0; i < genreElements.size(); i++) {
+            let el = genreElements.get(i);
             let title = el.text().trim();
-            if (title && title.length < 30) {
+            let href = el.attr("href");
+            if (title && href && title.length < 30) {
                 genres.push({
                     title: title,
-                    input: el.attr("href"),
+                    input: href,
                     script: "gen.js"
                 });
             }
-        });
+        }
         return Response.success(genres);
     }
     return null;

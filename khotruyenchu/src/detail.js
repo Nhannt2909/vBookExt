@@ -20,7 +20,9 @@ function execute(url) {
         let ongoing = doc.html().indexOf("Còn tiếp") >= 0 || doc.html().indexOf("Đang ra") >= 0;
         
         let genres = [];
-        doc.select("a[href*='/the-loai/']").forEach(function(el) {
+        let genreElements = doc.select("a[href*='/the-loai/']");
+        for (let i = 0; i < genreElements.size(); i++) {
+            let el = genreElements.get(i);
             let gTitle = el.text().trim();
             if (gTitle && gTitle.length < 30) {
                 genres.push({
@@ -29,7 +31,7 @@ function execute(url) {
                     script: "gen.js"
                 });
             }
-        });
+        }
 
         return Response.success({
             name: name,
