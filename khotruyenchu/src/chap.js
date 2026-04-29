@@ -22,22 +22,23 @@ function execute(url) {
             contentEl.select(".story-navigation, .reading-tools-bar, .social-share, .baoloi, .entry-meta, script, style, ins,em, .ads-responsive").remove();
             
             // Selective removal of watermarks/ads (even nested ones)
-            contentEl.select("div, span, i, p, a").forEach(function(el) {
+            let elements = contentEl.select("div, span, i, p, a");
+            for (let i = 0; i < elements.size(); i++) {
+                let el = elements.get(i);
                 let text = el.text().toLowerCase();
                 let style = String(el.attr("style") || "").toLowerCase();
                 
                 // Remove hidden elements (Site often uses position:absolute left:-9999px or display:none)
                 if (style.indexOf("display:none") >= 0 || style.indexOf("opacity:0") >= 0 || style.indexOf("absolute") >= 0) {
                     el.remove();
-                    return;
+                    continue;
                 }
 
                 // Remove small elements containing site name
                 if (el.tagName() !== 'p' && (text.indexOf("khotruyenchu") >= 0 || text.indexOf("sbs") >= 0) && text.length < 200) {
                     el.remove();
                 }
-                
-            });
+            }
 
             let html = contentEl.html();
             return Response.success(cleanContent(html));
