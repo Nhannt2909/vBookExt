@@ -83,7 +83,7 @@ let chapCode = fs.readFileSync('./src/chap.js', 'utf8');
 chapCode = chapCode.replace("load('config.js');", "");
 // make execute async and await fetch
 chapCode = chapCode.replace("function execute(url) {", "async function execute(url) {");
-chapCode = chapCode.replace("let response = fetch(url);", "let response = await fetch(url);");
+chapCode = chapCode.replace(/let response = fetch\(url, \{[\s\S]*?\}\);/m, "let response = await fetch(url, {\n        headers: {\n            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'\n        }\n    });");
 
 // Eval chap.js
 eval(chapCode);
