@@ -1,7 +1,11 @@
 load('config.js');
 
 function execute() {
-    let response = fetch(BASE_URL);
+    let response = fetch(BASE_URL, {
+        headers: {
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        }
+    });
     if (response.ok) {
         let doc = response.html();
         let genres = [];

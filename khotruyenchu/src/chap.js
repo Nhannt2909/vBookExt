@@ -1,7 +1,11 @@
 load('config.js');
 
 function execute(url) {
-    let response = fetch(url);
+    let response = fetch(url, {
+        headers: {
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        }
+    });
     if (response.ok) {
         let doc = response.html();
         Console.log("Doc title: " + doc.select("title").text());
@@ -14,6 +18,14 @@ function execute(url) {
         if (!contentEl) {
             Console.log("Fallback 2: article");
             contentEl = doc.select("article").first();
+        }
+        if (!contentEl) {
+            Console.log("Fallback 3: .markdown-main-panel");
+            contentEl = doc.select(".markdown-main-panel").first();
+        }
+        if (!contentEl) {
+            Console.log("Fallback 4: model-response");
+            contentEl = doc.select("[id^=model-response-message-content]").first();
         }
 
         if (contentEl) {
