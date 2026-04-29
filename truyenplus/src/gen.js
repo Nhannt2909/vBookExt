@@ -18,7 +18,8 @@ function execute(url, page) {
 
     doc.select(".item").forEach(function (el) {
 
-        var linkEl = el.select(".caption a").first();
+        var linkEl = el.select("h3 a").first();
+        if (!linkEl) linkEl = el.select(".caption a").first(); // Fallback for homepage format
         var imgEl = el.select("img").first();
 
         if (!linkEl) return;
@@ -44,11 +45,13 @@ function execute(url, page) {
             cover = encodeURI(cover);
         }
 
+        var author = el.select("p.line:contains(Tác giả) a").text().trim() || el.select("p.line:contains(Tác giả)").text().replace("Tác giả :", "").trim();
+
         data.push({
             name: linkEl.text().trim() + "",
             link: link,
             cover: cover,
-            description: "",
+            description: author,
             host: BASE_URL,
             tag: el.select(".Demo").text().trim() // Nếu site có tag, giữ nguyên, nếu không sẽ rỗng
         });

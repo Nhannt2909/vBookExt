@@ -13,9 +13,9 @@ function execute(key, page) {
     var data = [];
     var seen = {};
 
-    doc.select(".item").forEach(function(el) {
-        var linkEl = el.select(".caption a").first();
-        var imgEl  = el.select("img").first();
+    doc.select(".item").forEach(function (el) {
+        var linkEl = el.select("h3 a").first();
+        var imgEl = el.select("img").first();
         if (!linkEl) return;
 
         var link = (linkEl.attr("href") || "") + "";
@@ -26,12 +26,14 @@ function execute(key, page) {
         var cover = imgEl ? ((imgEl.attr("data-src") || imgEl.attr("src") || "") + "") : "";
         if (cover.startsWith("//")) cover = "https:" + cover;
 
+        var author = el.select("p.line:contains(Tác giả) a").text().trim() || el.select("p.line:contains(Tác giả)").text().replace("Tác giả :", "").trim();
+
         data.push({
-            name:        linkEl.text().trim() + "",
-            link:        link,
-            cover:       cover,
-            description: "",
-            host:        BASE_URL
+            name: linkEl.text().trim() + "",
+            link: link,
+            cover: cover,
+            description: author,
+            host: BASE_URL
         });
     });
 

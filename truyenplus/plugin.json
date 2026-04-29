@@ -2,7 +2,7 @@
   "metadata": {
     "name": "truyenplus",
     "author": "nhannt2909",
-    "version": 1,
+    "version": 2,
     "source": "https://truyenplus.vn",
     "regexp": "truyenplus\\\\.vn/[^/]+/?$",
     "description": "truyenplus",
